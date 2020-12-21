@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.food.Mapper.CommentMapper">
+    <select id="queryAll" resultType="com.java.food.entity.Comment">
+        select * from commentdata
+    </select>
+
+    <select id="query" parameterType="int" resultType="com.java.food.entity.Comment">
+        select * from commentdata
+        where id=#{id}
+    </select>
+
+    <insert id="add" parameterType="com.java.food.entity.Comment">
+        insert into commentdata(id,uid,content) values (#{id},#{uid},#{content})
+    </insert>
+
+    <delete id="delete">
+        delete from commentdata where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.java.food.entity.Comment">
+        update commentdata
+        set uid = #{uid}, content = #{content}
+        where id = #{id}
+    </update>
+
+</mapper>

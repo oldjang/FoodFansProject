@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.food.Mapper.ShopMapper">
+    <select id="queryAll" resultType="com.java.food.entity.Shop">
+        SELECT * FROM shopdata
+    </select>
+
+    <select id="queryOne" parameterType="int" resultType="com.java.food.entity.Shop">
+        select * from shopdata where id = #{id}
+    </select>
+
+    <select id="query" parameterType="java.lang.String" resultType="com.java.food.entity.Shop">
+        select * from shopdata
+        where shop_name LIKE '%#{queryName}%'
+    </select>
+</mapper>
