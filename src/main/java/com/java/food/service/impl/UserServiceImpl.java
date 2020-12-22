@@ -14,12 +14,13 @@ public class UserServiceImpl implements IUserService {
     private UserMapper userMapper;
 
     @Override
-    public Boolean Register(String username, String password) {
+    public Boolean Register(String username, String password,String imageUrl) {
         if (userMapper.queryByName(username) == null) {
             UserData userData = new UserData();
             userData.setId((int) (System.currentTimeMillis() % 1000000000));
             userData.setUsername(username);
             userData.setPassword(password);
+            userData.setImageUrl(imageUrl);
             userMapper.add(userData);
             return Boolean.TRUE;
         } else

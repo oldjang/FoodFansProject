@@ -1,6 +1,7 @@
 package com.java.food.controller;
 
 
+import com.java.food.annotation.UserLoginToken;
 import com.java.food.service.IFileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ public class ImageController {
     @Autowired
     private IFileService fileService;
 
+    @UserLoginToken
     @PostMapping("/upload")
     public String upload(@RequestParam("file") MultipartFile file) {
         return fileService.upload(file);

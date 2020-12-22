@@ -24,7 +24,8 @@ public class UserController {
     public RespEntity register(@RequestBody JSONObject jsonObject) {
         String username = jsonObject.getAsString("username");
         String password = jsonObject.getAsString("password");
-        if (userService.Register(username, password))
+        String imageUrl = jsonObject.getAsString("imageUrl");
+        if (userService.Register(username, password,imageUrl))
             return new RespEntity(RespCode.SUCCESS);
         else
             return new RespEntity(RespCode.WARN);

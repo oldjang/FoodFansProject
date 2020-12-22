@@ -1,8 +1,8 @@
 package com.java.food.entity;
 
 public enum RespCode {
-    SUCCESS(0, "请求成功"),
-    WARN(-1, "请求失败");
+    SUCCESS(0, "0"),
+    WARN(1, "1");
 
     private int code;
     private String msg;

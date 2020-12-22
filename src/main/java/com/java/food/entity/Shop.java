@@ -1,5 +1,7 @@
 package com.java.food.entity;
 
+import java.util.List;
+
 public class Shop {
     private int id;
     private String imageUrl;
