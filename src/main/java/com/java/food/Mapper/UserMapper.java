@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper {
     public int add(UserData userData);
     public UserData queryByName(String username);
+    public String queryImageUrl(int uid);
+    public String updateImageUrl(int uid,String imageUrl);
 }

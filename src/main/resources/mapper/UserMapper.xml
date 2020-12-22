@@ -10,4 +10,15 @@
     <select id="queryByName" resultType="com.java.food.entity.UserData">
         select * from userdata where username = #{username}
     </select>
+
+    <select id="queryImageUrl" resultType="java.lang.String">
+        select imageUrl from userdata where id = #{uid}
+    </select>
+
+    <update id="updateImageUrl">
+        update commentdata
+        set imageUrl = #{imageUrl}
+        where id = #{uid}
+    </update>
+
 </mapper>

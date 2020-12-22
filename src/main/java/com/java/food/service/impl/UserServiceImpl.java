@@ -3,6 +3,7 @@ package com.java.food.service.impl;
 import com.java.food.Mapper.UserMapper;
 import com.java.food.entity.UserData;
 import com.java.food.service.IUserService;
+import net.minidev.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,4 +25,11 @@ public class UserServiceImpl implements IUserService {
         } else
             return Boolean.FALSE;
     }
+
+    @Override
+    public UserData queryByName(String username) {
+        return userMapper.queryByName(username);
+    }
+
+
 }

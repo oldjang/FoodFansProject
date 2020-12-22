@@ -9,9 +9,9 @@ public interface ICommentService {
 
     public Comment query(int id);
 
-    public int add(int uid, String content);
+    public int add(int uid, String content,String picList);
 
     public int delete(int id);
 
-    public int update(int id, int uid, String content);
+    public int update(int id, int uid, String content,String picList);
 }

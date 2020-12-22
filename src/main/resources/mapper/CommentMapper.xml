@@ -13,7 +13,7 @@
     </select>
 
     <insert id="add" parameterType="com.java.food.entity.Comment">
-        insert into commentdata(id,uid,content) values (#{id},#{uid},#{content})
+        insert into commentdata(id,uid,content,picList) values (#{id},#{uid},#{content},#{picList})
     </insert>
 
     <delete id="delete">
@@ -22,7 +22,7 @@
 
     <update id="update" parameterType="com.java.food.entity.Comment">
         update commentdata
-        set uid = #{uid}, content = #{content}
+        set uid = #{uid}, content = #{content} ,picList = #{picList}
         where id = #{id}
     </update>
 
