@@ -19,23 +19,5 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public AuthenticationInterceptor authenticationInterceptor() {
         return new AuthenticationInterceptor();
     }
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("*")
-                .allowedMethods("GET","HEAD","POST","PUT","DELETE","OPTIONS")
-                .allowCredentials(true)
-                .maxAge(3600)
-                .allowedHeaders("*");
-    }
-    @Bean
-    public FilterRegistrationBean corsFilterRegistration() {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(new CorsFilter());
-        registration.addUrlPatterns("/*");
-        registration.setName("corsFilter");
-        //将其注册在其他过滤器的前面
-        registration.setOrder(0);
-        return registration;
-    }
+
 }

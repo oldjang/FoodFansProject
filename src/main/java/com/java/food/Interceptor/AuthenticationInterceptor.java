@@ -11,6 +11,8 @@ import com.java.food.annotation.UserLoginToken;
 import com.java.food.entity.UserData;
 import com.java.food.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,6 +31,17 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
+        response.setHeader("Access-Control-Allow-Methods", "GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS");
+        response.setHeader("Access-Control-Max-Age", "86400");
+        response.setHeader("Access-Control-Allow-Headers", "*");
+
+        // 如果是OPTIONS则结束请求
+        if (HttpMethod.OPTIONS.toString().equals(request.getMethod())) {
+            response.setStatus(HttpStatus.NO_CONTENT.value());
+            return false;
+        }
         String token = request.getHeader("token");
         if (!(handler instanceof HandlerMethod))
             return true;
